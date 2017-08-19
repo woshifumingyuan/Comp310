@@ -11,8 +11,6 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 import shape.Ball;
-import view.Dispatcher;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

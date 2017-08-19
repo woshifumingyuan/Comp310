@@ -6,8 +6,6 @@ import java.awt.Graphics;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-import view.Dispatcher;
-
 public class BallWorldModel implements IViewAdapter{
 	public IViewAdapter viewadp;
 	public BallWorldModel(IViewAdapter adp) {
