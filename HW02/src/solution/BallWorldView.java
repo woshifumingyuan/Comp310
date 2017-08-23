@@ -2,51 +2,34 @@ package solution;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.EventQueue;
+
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.Timer;
+
 import javax.swing.border.EmptyBorder;
 
-import shape.Ball;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class BallWorldView extends JFrame implements IModelPaintAdapter, IModelCtrlAdapter{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -418711573305259097L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void start1() {
-		EventQueue.invokeLater(new Runnable() {
-			private IModelPaintAdapter model;
-
-			public void run() {
-				try {
-					BallWorldView frame = new BallWorldView(this.model);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-	
-	
-	/**
-	 * Create the frame.
-	 */
-	
-	JButton btnDeletBalls = new JButton("Delet balls");
+	JButton btnDeletBalls = new JButton("Delete balls");
 	JButton btnMakeBall = new JButton("Make ball");
 	JPanel panel_1 = new JPanel();
 	JPanel panel = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -9016974197903712917L;
+
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			model.paintBalls(g);
@@ -68,13 +51,10 @@ public class BallWorldView extends JFrame implements IModelPaintAdapter, IModelC
 		setContentPane(contentPane);
 		contentPane.add(panel, BorderLayout.CENTER);
 		contentPane.add(panel_1, BorderLayout.SOUTH);
-		
 		btnMakeBall.addActionListener(new ActionListener() {
-			
 			public void actionPerformed(ActionEvent e) {
 				gg = panel.getGraphics();
 				model.addBall(gg);
-				//gg.fillOval(100,100,10,10);
 			}
 		});
 		panel_1.add(btnMakeBall);
@@ -93,30 +73,13 @@ public class BallWorldView extends JFrame implements IModelPaintAdapter, IModelC
 	}
 	
 	@Override
-	public void loadBall() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void loadBall() {}
 	@Override
-	public void paintBalls(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void paintBalls(Graphics g) {}
 	@Override
-	public void addBall(Graphics g) {
-		// TODO Auto-generated method stub
-	}
-
+	public void addBall(Graphics g) {}
 	@Override
-	public void clearBalls() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void clearBalls() {}
 	@Override
-	public void clearBalls(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void clearBalls(Graphics g) {}
 }

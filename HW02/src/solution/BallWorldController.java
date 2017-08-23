@@ -12,7 +12,6 @@ public class BallWorldController {
 	private BallWorldModel model;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub	
 		EventQueue.invokeLater(new Runnable() {
 			@Override 
 			public void run() {
@@ -30,7 +29,6 @@ public class BallWorldController {
 		model = new BallWorldModel(new IViewAdapter(){
 			@Override
 			public void repaint() {
-				// TODO Auto-generated method stub
 				view.panel.repaint();
 			}
 		});
@@ -38,7 +36,6 @@ public class BallWorldController {
 		view = new BallWorldView (new IModelPaintAdapter() {
 			@Override
 			public void paintBalls(Graphics g) {
-				// TODO Auto-generated method stub
 				model.paintBalls(g);
 			}
 
@@ -47,10 +44,8 @@ public class BallWorldController {
 				// TODO Auto-generated method stub
 				model.addBall(g);
 			}
-
 			@Override
 			public void clearBalls(Graphics g) {
-				// TODO Auto-generated method stub
 				model.clearBalls(g);
 			}
 			

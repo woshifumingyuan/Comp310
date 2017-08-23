@@ -1,6 +1,6 @@
 package solution;
 
-import java.awt.Container;
+
 
 public interface IViewAdapter {
 	public void repaint();
