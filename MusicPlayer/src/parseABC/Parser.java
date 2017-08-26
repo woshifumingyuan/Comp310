@@ -52,6 +52,10 @@ public class Parser {
 		while(i<l) {
 			String st = s.get(i);
 			String so;
+			if(st.length()==0) {
+				i++;
+				continue;
+			}
 			if(st.startsWith("%")) {
 				i++;
 				continue;
@@ -65,7 +69,7 @@ public class Parser {
 				L = st.substring(2);
 			}else if(st.charAt(1)!=':') {
 				//System.out.println(st);
-				so = translate(st);
+				translate(st);
 				//System.out.println(so);
 			}
 			i++;
@@ -82,48 +86,145 @@ public class Parser {
 	}
 	
 	public double getValue(String s) {
-		System.out.println(s);
-		if(s==null) return 1;s.replace('|', ' ');
+		//System.out.println(s);
+		if(s==">") return 1;
+		if(s==null) return 1;
 		if(s=="") return 1;
 		String[] ss = s.split("\\/");
 		if(ss.length==0) return 0.5;
-		if(ss.length==1) return Double.valueOf(s);
-		double a = Double.valueOf(ss[0]);
-		double b = Double.valueOf(ss[1]);
+		if(ss.length==1) return 1;
+		double a = 1;
+		if(ss[0].length()!=0) a = Double.valueOf(ss[0]);
+		double b = 1;
+		if(ss[1].length()!=0) b = Double.valueOf(ss[1].substring(0,1));
+		System.out.printf("%s,%f \n", s,a/b);
+		
 		return a/b;
 	}
     
 	int count = 0;
-	public String translate(String sg) {
-		char[] ar = sg.toCharArray();
-		StringBuilder sb = new StringBuilder();
-		int i = 0;
-		while(i < ar.length) {
-			int sharp = 0;String l = "";
-			if(ar[i]>='a'&&ar[i]<='g'||ar[i]>='A'&&ar[i]<='G') {
-				char n = ar[i];
-				i++;
-				while(i<ar.length&&!(ar[i]>='a'&&ar[i]<='g'||ar[i]>='A'&&ar[i]<='G')) {
-					if(ar[i]=='\''){
-						sharp++;
-					}else if(ar[i] == ','){
-						sharp--;
-					}else {
-						l = l+""+ar[i];
+	public void translate(String sg) {
+		String[] ssg = sg.split("\\|");
+		for(int i = 0; i < ssg.length; i++) {
+			char[] ch = ssg[i].toCharArray();
+			for(int j = 0; j < ch.length; j++) {
+				if(ch[j]<='G'&&ch[j]>='A'||ch[j]<='g'&&ch[j]>='a') {
+					int pitch = determinePitch(ch[j]);
+					j++;
+					while(j<ch.length&&ch[j]=='\'') {
+						pitch++;
+						j++;
 					}
-					i++;
+					while(j<ch.length&&ch[j]==',') {
+						pitch--;
+						j++;
+					}
+					StringBuilder ssb = new StringBuilder();
+					while(j<ch.length&&!(ch[j]<='G'&&ch[j]>='A'||ch[j]<='g'&&ch[j]>='a'))
+					{
+						ssb.append(ch[j]);
+						j++;
+					}
+					int len = (int)(getValue(ssb.toString())/*/getValue(this.L)*/);
+					count += len;
+					noteList.add(new VoiceNote(pitch,count,count+len));
+					System.out.println(count);
+					j--;
 				}
-				int compute = (int)(getValue(l)*getValue(L)*16);
-				count += compute;
-				System.out.println(count);
-				VoiceNote vn = new VoiceNote(n-'A'+60+sharp,count, compute);
-				noteList.add(vn);
-				i++;
-			}else i++;
+			}
 		}
-		return sb.toString();
+	}
+	
+	public int determinePitch(char c) {
+		int base = 0;
+		switch(c) {
+			case 'A': base = 9;
+			break;
+			case 'B': base = 11;
+			break;
+			case 'C': base = 0;
+			break;
+			case 'D': base = 2;
+			break;
+			case 'E': base = 4;
+			break;
+			case 'F': base = 5;
+			break;
+			case 'G': base = 7;
+			break;
+			case 'a': base = 21;
+			break;
+			case 'b': base = 23;
+			break;
+			case 'c': base = 12;
+			break;
+			case 'd': base = 14;
+			break;
+			case 'e': base = 16;
+			break;
+			case 'f': base = 17;
+			break;
+			case 'g': base = 19;
+			break;
+		}
+		switch(this.K) {
+			case "C":
+				break;
+			case "Gmaj":
+				base++;
+				break;
+			case "D":
+				base+=2;
+				break;
+			case "Am":
+				base+=3;
+				break;
+			case "Emaj":
+				base+=4;
+				break;
+			case "Bmaj":
+				base+=5;
+				break;
+			case "Fmaj":
+				base-=1;
+		}
+		base += 48;
+		return base;
 	}
 	/*public static void main(String[] args) {
 		Parser p = new Parser("C:\\Users\\woshi\\Desktop\\Comp310\\Comp310\\MusicPlayer\\src\\main\\file.abc");
 	}*/
 }
+/* 
+ A  9,
+ B  11,
+ C  0,
+ D  2,
+ E  4,
+ F  5,
+ G  7,*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
