@@ -93,11 +93,10 @@ public class Parser {
 		return a/b;
 	}
     
-	
+	int count = 0;
 	public String translate(String sg) {
 		char[] ar = sg.toCharArray();
 		StringBuilder sb = new StringBuilder();
-		int count = 0;
 		int i = 0;
 		while(i < ar.length) {
 			int sharp = 0;String l = "";
