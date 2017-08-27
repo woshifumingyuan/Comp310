@@ -112,11 +112,11 @@ public class Parser {
 					int pitch = determinePitch(ch[j]);
 					j++;
 					while(j<ch.length&&ch[j]=='\'') {
-						pitch++;
+						pitch+=12;
 						j++;
 					}
 					while(j<ch.length&&ch[j]==',') {
-						pitch--;
+						pitch-=12;
 						j++;
 					}
 					StringBuilder ssb = new StringBuilder();
@@ -130,7 +130,16 @@ public class Parser {
 					noteList.add(new VoiceNote(pitch,count,count+len));
 					System.out.println(count);
 					j--;
+				}else if(ch[j]=='z') {
+					j++;
+					StringBuilder ssb = new StringBuilder();
+					while(j<ch.length&&!(ch[j]<='G'&&ch[j]>='A'||ch[j]<='g'&&ch[j]>='a')&&ch[i]!='^'&&ch[i]!='z'&&ch[i]!='='&&ch[i]!='_')
+					{
+						ssb.append(ch[j]);
+						j++;
+					}
 				}
+				
 			}
 		}
 	}
@@ -170,23 +179,41 @@ public class Parser {
 		switch(this.K) {
 			case "C":
 				break;
+			case "G":
+				base+=4;
+				break;
 			case "Gmaj":
-				base++;
+				base+=4;
 				break;
 			case "D":
-				base+=2;
+				base+=1;
 				break;
-			case "Am":
+			case "Dmaj":
+				base+=1;
+				break;
+			case "A":
 				base+=3;
+				break;
+			case "Amaj":
+				base+=3;
+				break;
+			case "E":
+				base+=4;
 				break;
 			case "Emaj":
 				base+=4;
 				break;
-			case "Bmaj":
-				base+=5;
+			case "B":
+				base+=6;
+				break;
+			case "Bm":
+				base+=6;
 				break;
 			case "Fmaj":
-				base-=1;
+				base+=3;
+				break;
+			case "F":
+				base+=3;
 		}
 		base += 48;
 		return base;
