@@ -1,7 +1,11 @@
 X:1
-T:Azel
+T:All I Want For Christmas Is A Concertina
 M:4/4
-L:1/8
-R:reel
-K:Amaj
-cAAA cdec|deed efge|aege edce|decA BAFA|
+L:1/4
+K:G % transposed from A
+D|[Bd] [Bd] [Bd] [ce]|[Bd] [Ac] [GB] [Bd]|[Ac] ([F3A3]|[F3A3]) [Bd]|[df] [df] [cf] [eg]|[fa] [eg] [df] [ce]|[ce] ([B3d3]|[Bd]) d/e/ d D|
+[Bd] [Bd] [Bd] [ce]|[Bd] [Ac] [GB] [Bd]|[Ac] ([F3A3]|[F3A3]) [Bd]|[df] [df] [df] [ce]|[Bd] [Ac] F [FA]|[FA] ([B,3G3]|[B,3G3]) D|
+[Bd] [Bd] [Bd] [ce]|[Bd] [Ac] [GB] [Bd]|z [A2c2] [Bd]|[Ac] [F2A2] [Bd]|[df] [df] [df] [eg]|[fa] [eg] [df] [ce]|[ce] ([B3d3]|[B3d3]) D|
+[Bd] [Bd] [Bd] [ce]|[Bd] [Ac] [GB] [Bd]|z [E2c2] [Bd]|[c2e2] [eg] [eg]|[df] [Bd] [ce] [Ac]|[Bd] [GB] [Ac] [FA]|([B4G4]|[B,3G3]) [Bd]|
+|:[ce] z [E2c2]|B/c/ d [G2B2]|A/G/ A/B/ c/F/ G/A/|G/F/ G/A/ B/G/ A/B/|
+[ce] z [E2c2]|B/c/ d [G2B2]|A/G/ A/B/ c/F/ G/A/|1 G B/d/ [Bg] [Bd]:|2 G B/d/ g |

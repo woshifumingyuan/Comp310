@@ -1,4 +1,4 @@
-package main;
+/*package main;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,13 +14,11 @@ import voice.VoiceNote;
 
 public class player {
 	public static void main(String[] args) throws MidiUnavailableException, InvalidMidiDataException, FileNotFoundException, IOException {
+		
+		
 		String s = "C:\\Users\\woshi\\Desktop\\Comp310\\Comp310\\MusicPlayer\\src\\main\\file.abc";
 		Parser p = new Parser(s);
-		SequencePlayer sp = new SequencePlayer(160,2);
-		System.out.println(p.title);
-		System.out.println(p.K);
-		System.out.println(p.M);
-		System.out.println(p.Q);
+		SequencePlayer sp = new SequencePlayer(160,1);
 		List<VoiceNote> ln = p.noteList;
 		int cont = 0;
 		for(int i = 0; i < ln.size(); i++) {
@@ -29,3 +27,4 @@ public class player {
 		sp.play();
 	}
 }
+*/
