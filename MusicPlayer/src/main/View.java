@@ -69,7 +69,7 @@ public class View {
 				Parser p = new Parser(s);
 				SequencePlayer sp = null;
 				try {
-					sp = new SequencePlayer(160,1);
+					sp = new SequencePlayer(80,16);
 				} catch (MidiUnavailableException | InvalidMidiDataException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

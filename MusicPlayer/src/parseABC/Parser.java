@@ -130,7 +130,7 @@ public class Parser {
 						j++;
 					}
 					//System.out.println(ssb.toString());
-					int len = (int)(getValue(ssb.toString())/*/getValue(this.L)*/);
+					int len = (int)(getValue(ssb.toString())*8/*/getValue(this.L)*/);
 					//System.out.println(len);
 					noteList.add(new VoiceNote(pitch+ac,count.get(index),count.get(index)+len));
 					count.set(index,count.get(index)+len);
